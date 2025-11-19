@@ -1,0 +1,15 @@
+#include "Player.h"
+#include "TurnManager.h"
+
+class Game {
+    private:
+    Player player1;
+    Player player2;
+    TurnManager turn;
+
+    public:
+    void start();
+    void initPlayers();
+    void startRound();
+    void endGame();
+};

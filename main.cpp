@@ -1,10 +1,12 @@
 #include <iostream>
+#include "Game.h"
 
 using namespace std;
 
+// class Game control all
+// main() is only be use to start game.
 int main() {
-    cout << "hi";
-    cout << "hello";
-    cout << "test";
+    Game game;
+    game.start();
     return 0;
 }
