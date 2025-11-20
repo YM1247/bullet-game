@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Game.h"
-
-using namespace std;
 
 // class Game control all
 // main() is only be use to start game.

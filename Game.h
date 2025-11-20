@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include "Player.h"
 #include "TurnManager.h"
 
@@ -13,3 +16,5 @@ class Game {
     void startRound();
     void endGame();
 };
+
+#endif

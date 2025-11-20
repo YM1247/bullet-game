@@ -1,3 +1,6 @@
+#ifndef TURNMANAGE_H
+#define TURNMANAGE_H
+
 #include "Player.h"
 
 class TurnManager {
@@ -10,3 +13,5 @@ class TurnManager {
     void grantExtraShot(Player& p);
     bool hasExtraShot(Player& p);
 };
+
+#endif

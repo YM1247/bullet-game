@@ -1,3 +1,6 @@
+#ifndef BULLETDECK_H
+#define BULLETDECK_H
+
 #include <vector>
 
 class BulletDeck {
@@ -10,3 +13,5 @@ class BulletDeck {
     bool fire();               // 回傳是否是實彈
     bool hasNext();            // 還有沒有下一發
 };
+
+#endif
