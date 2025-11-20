@@ -5,8 +5,5 @@
 int main() {
     Game game;
     game.start();
-    cout << "HI!";
-    cout << "Life has become better";
-    hello
     return 0;
 }
