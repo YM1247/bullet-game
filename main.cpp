@@ -5,5 +5,6 @@
 int main() {
     Game game;
     game.start();
+    cout << "HI!";
     return 0;
 }
