@@ -5,20 +5,28 @@
 
 class Character {
     protected:
-    int skillCD;
+    int skillLimit;
+    int currentSkillValue;
 
     public:
-    virtual ~Character();
+    Character();
+    virtual ~Character() {};
     virtual void useSkill();
 };
 
 // other characters may be like:
 class Elliot : public Character {
     public:
-    ~Elliot() {}; 
-    void useSkill();
+    Elliot() : Character() {};
+    ~Elliot() {};
+    void useSkill(); 
 };
-class BigJay : public Character {};
+class BigJay : public Character {
+    public:
+    BigJay() : Character() {};
+    ~BigJay() {};
+    void useSkill();     
+};
 class YaJu : public Character {};
 class OldJuang : public Character {};
 class MingJen : public Character {};
