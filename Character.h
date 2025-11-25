@@ -32,7 +32,7 @@ class OldJuang : public Character {
     public:
     OldJuang() : Character() {};
     ~OldJuang() {};
-    void useSkill(Player opponent);
+    void useSkill(Player& opponent);
 };
 class YaJu : public Character {};
 class MingJen : public Character {};

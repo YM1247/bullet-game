@@ -42,7 +42,7 @@ OldJuang::OldJuang() {
     skillLimit = 3;
     currentSkillValue = 0;
 }
-void OldJuang::useSkill(Player opponent) {
+void OldJuang::useSkill(Player& opponent) {
     // check: if current < limit -> cannot trigger skill
     if(currentSkillValue < skillLimit) return;
     // use skill
