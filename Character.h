@@ -13,7 +13,11 @@ class Character {
 };
 
 // other characters may be like:
-class Elliot : public Character {};
+class Elliot : public Character {
+    public:
+    ~Elliot() {}; 
+    void useSkill();
+};
 class BigJay : public Character {};
 class YaJu : public Character {};
 class OldJuang : public Character {};
