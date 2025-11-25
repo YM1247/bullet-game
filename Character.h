@@ -2,6 +2,7 @@
 #define CHARACTER_H
 
 #include "BulletDeck.h"
+#include "Player.h"
 
 class Character {
     protected:
@@ -11,7 +12,7 @@ class Character {
     public:
     Character();
     virtual ~Character() {};
-    virtual void useSkill();
+    virtual void useSkill() {};
 };
 
 // other characters may be like:
@@ -19,7 +20,7 @@ class Elliot : public Character {
     public:
     Elliot() : Character() {};
     ~Elliot() {};
-    void useSkill(); 
+    void useSkill(BulletDeck gun); 
 };
 class BigJay : public Character {
     public:
@@ -27,8 +28,13 @@ class BigJay : public Character {
     ~BigJay() {};
     void useSkill();     
 };
+class OldJuang : public Character {
+    public:
+    OldJuang() : Character() {};
+    ~OldJuang() {};
+    void useSkill(Player opponent);
+};
 class YaJu : public Character {};
-class OldJuang : public Character {};
 class MingJen : public Character {};
 
 #endif

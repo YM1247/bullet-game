@@ -1,4 +1,4 @@
-#include "Character.h"
+#include "Player.h"
 #include <iostream>
 
 Character::Character() {
@@ -8,17 +8,21 @@ Character::Character() {
 Character::~Character() {}
 
 // Elliot: the smart & handsome economist
-// Skill: See the status of the current bullet (real or blank)
+// Skill: Sees the status of the current bullet (real or blank)
 Elliot::Elliot() {
     skillLimit = 3;
     currentSkillValue = 0;
 }
-void Elliot::useSkill() {
+void Elliot::useSkill(BulletDeck gun) {
+    // check: if current < limit -> cannot trigger skill
     if(currentSkillValue < skillLimit) return;
-    // if bullet is real:
-    std::cout << "real" << "\n";
-    // if bullet is blank:
-    std::cout << "blank" << "\n";
+    // bullet is real: 
+    if(gun.fire())
+        std::cout << "real" << "\n";
+    // else, bullet is blank:
+    else
+        std::cout << "blank" << "\n";
+    // reset accumulated skill value    
     currentSkillValue = 0;
 }
 // BigJay: 
@@ -30,5 +34,18 @@ BigJay::BigJay() {
 void BigJay::useSkill() {
     if(currentSkillValue < skillLimit) return;
     // use skill
+    currentSkillValue = 0;
+}
+// OldJuang: rides his bike to Hokkaido
+// Skill: Dodges opponent's skill
+OldJuang::OldJuang() {
+    skillLimit = 3;
+    currentSkillValue = 0;
+}
+void OldJuang::useSkill(Player opponent) {
+    // check: if current < limit -> cannot trigger skill
+    if(currentSkillValue < skillLimit) return;
+    // use skill
+    opponent.skillInvalid();
     currentSkillValue = 0;
 }

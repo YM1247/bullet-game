@@ -15,6 +15,8 @@ class Player {
     void takeDamage(int dmg);
     bool isDead();
     void applySkillTrigger();
+    
+    void skillInvalid(); // for OldJuang's skill
 };
 
 #endif
