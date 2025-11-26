@@ -7,7 +7,8 @@ class BulletDeck {
     private:
     std::vector<bool> bullets;
     int index; //下一發的位置
-    char pointingDirection;
+
+    char pointingDirection; // pointing to which player?
 
     public:
     void generate(int realCount, int blankCount);
