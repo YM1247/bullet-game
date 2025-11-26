@@ -10,13 +10,16 @@ class Player {
     Character *character;
     bool hasExtraShot;
 
+    char positition; // L/R
+
     public:
     char chooseDirection(); // L/R
     void takeDamage(int dmg);
     bool isDead();
     void applySkillTrigger();
     
-    void skillInvalid(); // for OldJuang's skill
+    void skillInvalid(); // for OldJuang's skill ?
+    void getExtraBlood(); // for Ming's skill ?
 };
 
 #endif
