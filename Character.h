@@ -6,6 +6,7 @@
 
 class Character {
     protected:
+    int ID;
     int skillLimit;
 
     public:
