@@ -1,11 +1,45 @@
 #include "Player.h"
+#include "BulletDeck.h"
+#include "TurnManager.h"
 
-char Player::chooseDirection() {}
+Player::Player() {
+	character = new Character;
+}
 
-void Player::takeDamage(int dmg) {}
+Player::~Player() {
+	delete[] character;
+}
+
+char Player::chooseDirection() {
+
+	scanf("%s", &position);
+
+	if (position == 'A') {
+		return 'L';
+	}
+
+	else if (position == 'D') {
+		return 'R';
+	}
+}
+
+void Player::takeDamage(int dmg) {
+	hp -= dmg;
+}
 
 bool Player::isDead() {
 	return (hp == 0) ? true : false; // if hp = 0, the player's dead
 }
 
-void Player::applySkillTrigger() {}
+void Player::applySkillTrigger() {
+	if (skillPoint >= 3) {
+		character->useSkill(BulletDeck gun, Player &myself, Player &opponent);
+	}
+}
+
+void Player::skillInvalid(){
+
+}
+void Player::getExtraBlood(){
+	hp += 1;
+}

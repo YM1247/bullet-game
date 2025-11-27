@@ -11,11 +11,13 @@ class BulletDeck {
     char pointingDirection; // pointing to which player?
 
     public:
+    BulletDeck();
+    ~BulletDeck();
     void generate(int realCount, int blankCount);
     bool fire();               // 回傳是否是實彈
     bool hasNext();            // 還有沒有下一發
 
-    void fixedDirection(); // for BigJ's skill ?
+    void fixedDirection(Player *opponent); // for BigJ's skill ?
 };
 
 #endif

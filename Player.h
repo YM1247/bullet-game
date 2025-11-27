@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Character.h"
+#include <cstring>
 
 class Player {
     private:
@@ -10,13 +11,16 @@ class Player {
     Character *character;
     bool hasExtraShot;
 
-    char positition; // L/R
+    char position; // L/R
 
     public:
+    Player();
+    ~Player();
+
     char chooseDirection(); // L/R
-    void takeDamage(int dmg);
-    bool isDead();
-    void applySkillTrigger();
+    void takeDamage(int dmg); // hp-=dmg
+    bool isDead(); // if hp = 0
+    void applySkillTrigger(); // if the skill point is enough to trigger the skill, then trigger.
     
     void skillInvalid(); // for OldJuang's skill ?
     void getExtraBlood(); // for Ming's skill ?
