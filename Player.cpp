@@ -2,23 +2,25 @@
 #include "BulletDeck.h"
 #include "TurnManager.h"
 
-Player::Player() {
-	character = new Character;
-}
+Player::Player() {}
 
 Player::~Player() {
 	delete[] character;
+}
+
+void Player::chooseCharacter(int index) {
+	character = new Elliot;
 }
 
 char Player::chooseDirection() {
 
 	scanf("%s", &position);
 
-	if (position == 'A') {
+	if (position == 'A' || position == 'a') {
 		return 'L';
 	}
 
-	else if (position == 'D') {
+	else if (position == 'D' || position == 'd') {
 		return 'R';
 	}
 }
@@ -33,13 +35,11 @@ bool Player::isDead() {
 
 void Player::applySkillTrigger() {
 	if (skillPoint >= 3) {
-		character->useSkill(BulletDeck gun, Player &myself, Player &opponent);
+		character->useSkill();
 	}
 }
 
-void Player::skillInvalid(){
-
-}
-void Player::getExtraBlood(){
+void Player::skillInvalid() {}
+void Player::getExtraBlood() {
 	hp += 1;
 }

@@ -18,6 +18,7 @@ class Player {
     ~Player();
 
     char chooseDirection(); // L/R
+    void chooseCharacter(int index);
     void takeDamage(int dmg); // hp-=dmg
     bool isDead(); // if hp = 0
     void applySkillTrigger(); // if the skill point is enough to trigger the skill, then trigger.
