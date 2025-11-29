@@ -5,6 +5,8 @@
 #include "Player.h"
 
 class Character {
+friend class Player;
+
 protected:
 	int ID;
 	int skillLimit;

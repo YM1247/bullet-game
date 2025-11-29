@@ -50,9 +50,8 @@ bool BulletDeck::fire() {
 }
 
 bool BulletDeck::hasNext() { // Identify whether this is the final bullet slot
-	if (index >= realCount + blankCount - 1) { // If the index is the final one
+	if (index >= realCount + blankCount - 1) // If the index is the final one
 		return false;
-	}
 
 	else
 		return true;
