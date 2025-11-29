@@ -25,6 +25,7 @@ class Player {
     bool isDead(); // if hp = 0 return true
     bool applySkillTrigger(BulletDeck &curBullet, Player &opponent); // if the skill point is enough to trigger the skill, then trigger.
     int calDmg(BulletDeck &curBullet); // return how much damage will the player take
+    void gainSkillPt();
 
     void setSkillInvalid(bool status); // for OldJuang's skill, set cnaUseSkill
     void getExtraBlood(); // for Ming's skill, hp += 1

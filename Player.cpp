@@ -133,3 +133,7 @@ void Player::setDirectionFixed(bool status) {
 void Player::doubleDamage(bool status) {
 	isDamageDoubled = status;
 }
+
+void Player::gainSkillPt() {
+	skillPoint++;
+}
