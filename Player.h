@@ -21,8 +21,8 @@ class Player {
     void chooseCharacter(int index);
     void takeDamage(int dmg); // hp-=dmg
     bool isDead(); // if hp = 0
-    void applySkillTrigger(); // if the skill point is enough to trigger the skill, then trigger.
-    
+    bool applySkillTrigger(); // if the skill point is enough to trigger the skill, then trigger.
+    int calDmg(BulletDeck gun);
     void skillInvalid(); // for OldJuang's skill ?
     void getExtraBlood(); // for Ming's skill ?
 };

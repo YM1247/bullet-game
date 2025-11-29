@@ -31,7 +31,7 @@ BigJay::BigJay() {
 }
 
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
-	gun.fixedDirection();
+	gun.fixedDirection(&opponent);
 }
 // 2 : OldJuang: rides his bike to Hokkaido
 // Skill: Dodges opponent's skill
