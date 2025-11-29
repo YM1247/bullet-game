@@ -16,7 +16,9 @@ void BulletDeck::generate(int realCount, int blankCount) {
 
 		if (bullets[slot] == 1) {
 			realCount--;
-		} else {
+		}
+
+		else {
 			blankCount--;
 		}
 
@@ -54,8 +56,4 @@ bool BulletDeck::hasNext() { // Identify whether this is the final bullet slot
 
 	else
 		return true;
-}
-
-void BulletDeck::fixedDirection(Player *opponent) { // Force the opponent take damage
-	opponent->takeDamage(fire());
 }

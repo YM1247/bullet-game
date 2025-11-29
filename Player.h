@@ -2,29 +2,34 @@
 #define PLAYER_H
 
 #include "Character.h"
-#include <cstring>
 
 class Player {
     private:
     int hp;
     int skillPoint;
     Character *character;
-    bool hasExtraShot;
 
-    char position; // L/R
+    bool isDamageDoubled;
+    bool canUseSkill;
+    bool isDirectionFixed;
+
+    char direction; // L/R
 
     public:
     Player();
     ~Player();
 
-    char chooseDirection(); // L/R
-    void chooseCharacter(int index);
-    void takeDamage(int dmg); // hp-=dmg
-    bool isDead(); // if hp = 0
-    bool applySkillTrigger(BulletDeck gun, Player &opponent); // if the skill point is enough to trigger the skill, then trigger.
-    int calDmg(BulletDeck gun, Player &opponent);
-    void skillInvalid(); // for OldJuang's skill ?
-    void getExtraBlood(); // for Ming's skill ?
+    char chooseDirection(); // 輸入a或d, 回傳L或R
+    void chooseCharacter(); //依照角色編號創建charater
+    void takeDamage(int dmg); // hp -= dmg
+    bool isDead(); // if hp = 0 return true
+    bool applySkillTrigger(BulletDeck &curBullet, Player &opponent, int skillLimit); // if the skill point is enough to trigger the skill, then trigger.
+    int calDmg(BulletDeck curBullet); // return how much damage will the player take
+
+    void setSkillInvalid(bool index); // for OldJuang's skill, set cnaUseSkill
+    void getExtraBlood(); // for Ming's skill, hp += 1
+    void setDirectionFixed(bool index); // for BIgJay's skill, set isDirectionFixed
+    void doubleDamage(bool index); // for YaJus's skill, set hasExtraShot
 };
 
 #endif

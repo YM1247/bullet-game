@@ -17,7 +17,7 @@ class BulletDeck {
     bool fire();               // 回傳是否是實彈
     bool hasNext();            // 還有沒有下一發
 
-    void fixedDirection(Player *opponent); // for BigJ's skill ?
+    bool isRealBullet(); // for check only
 };
 
 #endif

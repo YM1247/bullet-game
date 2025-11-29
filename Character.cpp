@@ -16,7 +16,7 @@ Elliot::Elliot() {
 
 void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// bullet is real:
-	if (gun.fire())
+	if (gun.isRealBullet() == true)
 		std::cout << "real" << "\n";
 	// else, bullet is blank:
 	else
@@ -31,7 +31,7 @@ BigJay::BigJay() {
 }
 
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
-	gun.fixedDirection(&opponent);
+	opponent.setDirectionFixed(true);
 }
 // 2 : OldJuang: rides his bike to Hokkaido
 // Skill: Dodges opponent's skill
@@ -42,7 +42,7 @@ OldJuang::OldJuang() {
 
 void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
-	opponent.skillInvalid();
+	opponent.setSkillInvalid(false);
 }
 // 3 : YaJu: throws ping-pong balls
 // Skill: Double damage to opponent
@@ -53,8 +53,8 @@ YaJu::YaJu() {
 
 void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
-	if (gun.fire())
-		opponent.takeDamage(2);
+	if (gun.isRealBullet())
+		opponent.doubleDamage(true);
 }
 
 // 4 : Ming: owner of handsome handsome little farm

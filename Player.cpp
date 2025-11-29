@@ -1,54 +1,76 @@
 #include "Player.h"
 #include "BulletDeck.h"
 
-Player::Player() {}
-
-Player::~Player() {
-	delete[] character;
+Player::Player() {
+	hp = 3;
+	skillPoint = 0;
+	character = nullptr;
+	isDamageDoubled = false;
+	canUseSkill = true;
+	direction = {};
+	isDirectionFixed = false;
 }
 
-void Player::chooseCharacter(int index) {
-	if (index == 0)
-		character = new Elliot;
+Player::~Player() {
+	delete character;
+	character = nullptr;
+}
 
-	else if (index == 1)
-		character = new BigJay;
+void Player::chooseCharacter() {
+	int index = 0;
 
-	else if (index == 2)
-		character = new OldJuang;
+	while (true) {
+		scanf("%d", &index);
 
-	else if (index == 3)
-		character = new YaJu;
+		switch (index) {
+		case 0:
+			character = new Elliot;
+			return;
 
-	else if (index == 4)
-		character = new Ming;
+		case 1:
+			character = new BigJay;
+			return;
 
-	else {
-		printf("請輸入正確的角色編號\n");
-		chooseCharacter(index); //直到輸入正確的編號為止
+		case 2:
+			character = new OldJuang;
+			return;
+
+		case 3:
+			character = new YaJu;
+			return;
+
+		case 4:
+			character = new Ming;
+			return;
+
+		default:
+			printf("請輸入正確的角色編號\n");
+		}
 	}
 }
 
 char Player::chooseDirection() {
-	scanf("%s", &position);
-
-	if (position == 'A' || position == 'a') {
+	if (isDirectionFixed == true)
 		return 'L';
-	}
 
-	else if (position == 'D' || position == 'd') {
-		return 'R';
-	}
+	while (true) {
+		scanf(" %c", &direction);
 
-	else{
-		printf("請輸入 A 或 D\n");
+		if (direction == 'A' || direction == 'a')
+			return 'L';
+
+		else if (direction == 'D' || direction == 'd')
+			return 'R';
+
+		else
+			printf("請輸入 A 或 D\n");
 	}
 }
 
 void Player::takeDamage(int dmg) {
 	hp -= dmg;
 
-	if (hp <= 0){
+	if (hp <= 0) {
 		hp = 0;
 	}
 
@@ -59,13 +81,22 @@ bool Player::isDead() {
 	return (hp == 0) ? true : false; // if hp = 0, the player's dead
 }
 
-bool Player::applySkillTrigger(BulletDeck gun, Player &opponent) {
-	if (skillPoint >= character->skillLimit) {
-		character->useSkill(gun, *this, opponent);
+bool Player::applySkillTrigger(BulletDeck &curBullet, Player &opponent,
+							   int skillLimit) {
 
-		skillPoint -= character->skillLimit;
+	if (canUseSkill == false) {
+		printf("你的技能無法發動\n");
+		return false;
+	}
 
-		printf("發動技能，使用技能點數%d點，目前剩下%d點\n", character->skillLimit, skillPoint);
+	if (skillPoint >= skillLimit) { // 如果技能點數足夠
+
+		character->useSkill(curBullet, *this, opponent); // 發動技能
+
+		skillPoint -= skillLimit; // 扣點數
+
+		printf("發動技能，使用技能點數%d點，目前剩下%d點\n", skillLimit,
+			   skillPoint);
 		return true;
 	}
 
@@ -75,18 +106,29 @@ bool Player::applySkillTrigger(BulletDeck gun, Player &opponent) {
 	}
 }
 
-void Player::skillInvalid() {}
+void Player::setSkillInvalid(bool index) {
+	canUseSkill = index;
+}
+
 void Player::getExtraBlood() {
 	hp += 1;
 }
 
-int Player::calDmg(BulletDeck gun, Player &opponent) {
-	if (gun.fire() == false)
+int Player::calDmg(BulletDeck curBullet) {
+	if (curBullet.isRealBullet() == false)
 		return 0;
 
-	else if (gun.fire() == true && applySkillTrigger(gun, opponent) && character->ID == 3)
+	else if (curBullet.isRealBullet() && isDamageDoubled == true)
 		return 2;
 
-	else if (gun.fire() == true)
+	else
 		return 1;
+}
+
+void Player::setDirectionFixed(bool index) {
+	isDirectionFixed = index;
+}
+
+void Player::doubleDamage(bool index) {
+	isDamageDoubled = index;
 }
