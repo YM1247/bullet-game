@@ -3,11 +3,13 @@
 
 BulletDeck::BulletDeck() {
 	index = 0;
+	bulletCnt = 0;
 }
 BulletDeck::~BulletDeck() {}
 
 void BulletDeck::generate(int realCount, int blankCount) {
 	int slotLength = realCount + blankCount;
+	this->bulletCnt = slotLength;
 	srand(time(0));
 	int rn = 0;
 
@@ -50,7 +52,7 @@ bool BulletDeck::fire() {
 }
 
 bool BulletDeck::hasNext() { // Identify whether this is the final bullet slot
-	if (index >= realCount + blankCount - 1) // If the index is the final one
+	if (index >= this->bulletCnt - 1) // If the index is the final one
 		return false;
 
 	else
