@@ -13,6 +13,7 @@ class Game {
     public:
     void start();
     void initPlayers();
+    void chooseFirst();
     void startRound();
     void endGame();
 };
