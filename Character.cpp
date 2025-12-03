@@ -5,11 +5,10 @@ Character::Character() {
     this->ID = -1;
 	this->skillLimit = -1;
 }
-Character::~Character() {}
 
 // 0 : Elliot: the smart & handsome economist
 // Skill: Sees the status of the current bullet (real or blank)
-Elliot::Elliot() {
+Elliot::Elliot() : Character() {
     ID = 0;
 	skillLimit = 3;
 }
@@ -25,7 +24,7 @@ void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 
 // 1 : BigJay: Hand out candies that mess up your mind
 // Skill: Forces opponent to shoot him/herself
-BigJay::BigJay() {
+BigJay::BigJay() : Character() {
     ID = 1;
 	skillLimit = 3;
 }
@@ -35,7 +34,7 @@ void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 }
 // 2 : OldJuang: rides his bike to Hokkaido
 // Skill: Dodges opponent's skill
-OldJuang::OldJuang() {
+OldJuang::OldJuang() : Character() {
     ID = 2;
 	skillLimit = 3;
 }
@@ -46,7 +45,7 @@ void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 }
 // 3 : YaJu: throws ping-pong balls
 // Skill: Double damage to opponent
-YaJu::YaJu() {
+YaJu::YaJu() : Character() {
     ID = 3;
 	skillLimit = 3;
 }
@@ -59,7 +58,7 @@ void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 
 // 4 : Ming: owner of handsome handsome little farm
 // Skill: get extra blood
-Ming::Ming() {
+Ming::Ming() : Character() {
     ID = 4;
 	skillLimit = 3;
 }

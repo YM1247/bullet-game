@@ -9,6 +9,7 @@ class Game {
     Player player1;
     Player player2;
     TurnManager turn;
+    BulletDeck gun;
 
     public:
     void start();

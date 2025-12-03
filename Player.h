@@ -51,35 +51,35 @@ public:
 // other characters may be like:
 class Elliot : public Character {
 public:
-	Elliot() : Character() {};
+	Elliot();
 	~Elliot() {};
 	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
 };
 
 class BigJay : public Character {
 public:
-	BigJay() : Character() {};
+	BigJay();
 	~BigJay() {};
 	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
 };
 
 class OldJuang : public Character {
 public:
-	OldJuang() : Character() {};
+	OldJuang();
 	~OldJuang() {};
 	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
 };
 
 class YaJu : public Character {
 public:
-	YaJu() : Character() {};
+	YaJu();
 	~YaJu() {};
 	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
 };
 
 class Ming : public Character {
 public:
-	Ming() : Character() {};
+	Ming();
 	~Ming() {};
 	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
 };
