@@ -3,8 +3,6 @@
 
 #include "BulletDeck.h"
 
-class Character;
-
 class Player {
     private:
     int hp;
