@@ -1,60 +1,59 @@
 #include "BulletDeck.h"
 #include "Player.h"
+#include <cstdlib>
+#include <ctime>
 
-BulletDeck::BulletDeck() {
+BulletDeck::BulletDeck() : bullets()
+{
 	index = 0;
 	bulletCnt = 0;
 }
 BulletDeck::~BulletDeck() {}
 
 void BulletDeck::generate(int realCount, int blankCount) {
-	int slotLength = realCount + blankCount;
-	this->bulletCnt = slotLength;
+	int bulletCnt = realCount + blankCount;
+    bullets.clear();
+    index = 0;
+
+    // 將彈匣充到指定數量
+    for (int i = 0; i < realCount; i++) {
+        bullets.push_back(1);   // 實彈
+    }
+    for (int i = 0; i < blankCount; i++) {
+        bullets.push_back(0);  // 空彈
+    }
+	
+	// seed 一次
 	srand(time(0));
-	int rn = 0;
 
-	for (int slot = 0; slot < slotLength; slot++) {
-		bullets.push_back(rand() % 2);
+	std::vector<bool> temp = bullets; // 利用 bullets 複製另一個 temp 彈匣供隨機排序用
+    bullets.clear(); // 清空 bullets 彈匣
+    bullets.reserve(bulletCnt); // 幫 bullets 彈匣預留子彈空間
 
-		if (bullets[slot] == 1) {
-			realCount--;
-		}
-
-		else {
-			blankCount--;
-		}
-
-		if (realCount == 0) {
-			for (int s = 0; s < blankCount; s++)
-				bullets.push_back(0);
-			break;
-		}
-
-		else if (blankCount == 0) {
-			for (int s = 0; s < blankCount; s++)
-				bullets.push_back(1);
-			break;
-		}
+    while (!temp.empty()) {
+        int idx = rand() % temp.size(); // 在目前 temp 彈匣內的子彈數量中隨機選出其中一個 index
+        bullets.push_back(temp[idx]); // 將該 index 對應的子彈放進 bullets 彈匣
+        temp.erase(temp.begin() + idx); // 將同顆子彈從 temp 彈匣中移除
 	}
 }
 
 bool BulletDeck::fire() {
-
-	if (bullets[index] != 0) {
-		index++;
-		return true; // Fire real bullet
+    if (!hasNext()) { // 若沒子彈了，啥也射不出來
+		return false;
 	}
 
-	else {
-		index++;
-		return false; // No fire bullet
-	}
+    bool isReal = bullets[index];
+    ++index;
+    return isReal; // 回傳實彈或是虛彈
 }
 
-bool BulletDeck::hasNext() { // Identify whether this is the final bullet slot
-	if (index >= this->bulletCnt - 1) // If the index is the final one
-		return false;
+bool BulletDeck::hasNext() const { 
+	return index < bulletCnt; // false if no more bullets
+}
 
-	else
-		return true;
+bool BulletDeck::isRealBullet() const {
+    if (!hasNext()) { // 沒子彈也 return false
+        return false;
+    }
+    return bullets[index];
 }
