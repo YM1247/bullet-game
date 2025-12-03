@@ -1,4 +1,4 @@
-#include "Player.h" // necessary ?
+#include "Player.h"
 #include <iostream>
 
 Character::Character() {

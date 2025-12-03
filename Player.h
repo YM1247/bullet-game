@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "BulletDeck.h"
+
 class Character;
 
 class Player {
@@ -31,6 +33,57 @@ class Player {
     void getExtraBlood(); // for Ming's skill, hp += 1
     void setDirectionFixed(bool status); // for BIgJay's skill, set isDirectionFixed
     void doubleDamage(bool status); // for YaJus's skill, set hasExtraShot
+};
+
+// Character.h Section
+
+class Character {
+friend class Player;
+
+protected:
+	int ID;
+	int skillLimit;
+
+public:
+	Character();
+	virtual ~Character() {};
+	virtual void useSkill(BulletDeck gun, Player &myself, Player &opponent) {};
+};
+
+// other characters may be like:
+class Elliot : public Character {
+public:
+	Elliot() : Character() {};
+	~Elliot() {};
+	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
+};
+
+class BigJay : public Character {
+public:
+	BigJay() : Character() {};
+	~BigJay() {};
+	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
+};
+
+class OldJuang : public Character {
+public:
+	OldJuang() : Character() {};
+	~OldJuang() {};
+	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
+};
+
+class YaJu : public Character {
+public:
+	YaJu() : Character() {};
+	~YaJu() {};
+	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
+};
+
+class Ming : public Character {
+public:
+	Ming() : Character() {};
+	~Ming() {};
+	void useSkill(BulletDeck gun, Player &myself, Player &opponent);
 };
 
 #endif

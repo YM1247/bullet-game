@@ -1,3 +1,6 @@
+// 我們搬家囉！舊雨新知，歡迎老朋友們移駕Player.h
+
+/*
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
@@ -55,3 +58,4 @@ public:
 };
 
 #endif
+*/

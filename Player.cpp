@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "BulletDeck.h"
 
 Player::Player() {
 	hp = 3;
