@@ -2,7 +2,8 @@
 #define CHARACTER_H
 
 #include "BulletDeck.h"
-#include "Player.h"
+
+class Player;
 
 class Character {
 friend class Player;
