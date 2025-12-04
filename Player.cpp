@@ -6,7 +6,7 @@ Player::Player() {
 	character = nullptr;
 	isDamageDoubled = false;
 	canUseSkill = true;
-	direction = {};
+	direction = 'N';
 	isDirectionFixed = false;
 }
 
@@ -135,4 +135,8 @@ void Player::doubleDamage(bool status) {
 
 void Player::gainSkillPt() {
 	skillPoint++;
+}
+
+bool Player::getDoubleDamage() {
+	return isDamageDoubled;
 }

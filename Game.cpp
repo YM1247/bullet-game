@@ -59,7 +59,10 @@ void Game::start() {
         else { // 射對方
             if (isReal) {
                 cout << "【實彈】命中對手！" << endl;
-                opponent->takeDamage(1);
+                if(opponent->getDoubleDamage()) // 對方該被雙倍傷害
+                    opponent->takeDamage(2);
+                else // 對方該被正常傷害
+                    opponent->takeDamage(1);
                 turn.swap(); // 擊中換人
             } else {
                 cout << "【空彈】未命中。" << endl;

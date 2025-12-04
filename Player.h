@@ -33,6 +33,7 @@ class Player {
     void getExtraBlood(); // for Ming's skill, hp += 1
     void setDirectionFixed(bool status); // for BIgJay's skill, set isDirectionFixed
     void doubleDamage(bool status); // for YaJus's skill, set hasExtraShot
+    bool getDoubleDamage();
 };
 
 // Character.h Section
