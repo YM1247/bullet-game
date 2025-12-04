@@ -11,7 +11,7 @@ BulletDeck::BulletDeck() : bullets()
 BulletDeck::~BulletDeck() {}
 
 void BulletDeck::generate(int realCount, int blankCount) {
-	int bulletCnt = realCount + blankCount;
+	bulletCnt = realCount + blankCount;
     bullets.clear();
     index = 0;
 

@@ -42,6 +42,7 @@ class Character {
 friend class Player;
 
 protected:
+    char name[10];
 	int ID;
 	int skillLimit;
 
@@ -49,6 +50,7 @@ public:
 	Character();
 	virtual ~Character() {};
 	virtual void useSkill(BulletDeck gun, Player &myself, Player &opponent) {};
+    const char* getName() const;
 };
 
 // other characters may be like:
