@@ -22,10 +22,10 @@ Elliot::Elliot() : Character() {
 void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// bullet is real:
 	if (gun.isRealBullet() == true)
-		std::cout << "目前子彈是「實彈」！" << "\n";
+		std::cout << "目前子彈是【實彈】！" << "\n";
 	// else, bullet is blank:
 	else
-		std::cout << "目前子彈是「虛彈」！" << "\n";
+		std::cout << "目前子彈是【虛彈】！" << "\n";
 }
 
 // 1 : BigJay: Hand out candies that mess up your mind
