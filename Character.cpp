@@ -63,8 +63,8 @@ YaJu::YaJu() : Character() {
 
 void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
-	if (gun.isRealBullet())
-		opponent.doubleDamage(true);
+	opponent.doubleDamage(true);
+	std::cout << "對方將被雙倍傷害！" << "\n";
 }
 
 // 4 : Ming: owner of handsome handsome little farm
