@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <cstdio>
 
 Player::Player() {
 	hp = 3;
