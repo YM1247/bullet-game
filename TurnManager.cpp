@@ -20,3 +20,12 @@ void TurnManager::grantExtraShot(Player& p) {
     // 記錄擁有額外射擊機會的玩家
     extraShotPlayer = &p;
 }
+
+bool TurnManager::hasExtraShot(Player& p) {
+    if (extraShotPlayer == &p) {
+        // 成功，且消耗掉這個機會，避免重複使用
+        extraShotPlayer = nullptr;
+        return true;
+    }
+    return false;
+}
