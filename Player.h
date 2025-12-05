@@ -34,6 +34,7 @@ class Player {
     void setDirectionFixed(bool status); // for BIgJay's skill, set isDirectionFixed
     void doubleDamage(bool status); // for YaJus's skill, set hasExtraShot
     bool getDoubleDamage();
+    int getHP();
 };
 
 // Character.h Section

@@ -8,6 +8,7 @@ using namespace std;
 // --- 遊戲設定 ---
 static int REAL_AMMO = 3;  // 實彈數
 static int BLANK_AMMO = 2; // 空彈數
+const int totalHP = 10;
 
 void Game::start() {
     initPlayers();
@@ -33,7 +34,8 @@ void Game::start() {
 
         cout << "\n--------------------------------\n";
         cout << (current == &player1 ? "Player 1" : "Player 2") << " 的回合\n";
-        
+        // 顯示HP
+        cout << "HP： " << current->getHP() << " / " << totalHP << "\n";
         // 4. 技能階段
         current->applySkillTrigger(gun, *opponent);
 

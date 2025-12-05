@@ -22,10 +22,10 @@ Elliot::Elliot() : Character() {
 void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// bullet is real:
 	if (gun.isRealBullet() == true)
-		std::cout << "real" << "\n";
+		std::cout << "目前子彈是「實彈」！" << "\n";
 	// else, bullet is blank:
 	else
-		std::cout << "blank" << "\n";
+		std::cout << "目前子彈是「虛彈」！" << "\n";
 }
 
 // 1 : BigJay: Hand out candies that mess up your mind
@@ -38,6 +38,7 @@ BigJay::BigJay() : Character() {
 
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	opponent.setDirectionFixed(true);
+	std::cout << "你鎖定了對手的方向！" << "\n";
 }
 // 2 : OldJuang: rides his bike to Hokkaido
 // Skill: Dodges opponent's skill
@@ -50,6 +51,7 @@ OldJuang::OldJuang() : Character() {
 void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
 	opponent.setSkillInvalid(false);
+	std::cout << "對手技能無效化了！" << "\n";
 }
 // 3 : YaJu: throws ping-pong balls
 // Skill: Double damage to opponent
@@ -76,4 +78,5 @@ Ming::Ming() : Character() {
 void Ming::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
 	myself.getExtraBlood();
+	std::cout << "喝下自家產新鮮牛奶，加一滴血！" << "\n";
 }

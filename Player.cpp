@@ -1,8 +1,9 @@
 #include "Player.h"
 #include <cstdio>
 
+
 Player::Player() {
-	hp = 3;
+	hp = 10;
 	skillPoint = 0;
 	character = nullptr;
 	isDamageDoubled = false;
@@ -65,6 +66,7 @@ void Player::chooseCharacter() {
 char Player::chooseDirection() {
 	if (isDirectionFixed == true) {
 		printf("你的方向被對方鎖定了");
+		isDirectionFixed = false;
 		return 'L';
 	}
 
@@ -153,4 +155,8 @@ void Player::gainSkillPt() {
 
 bool Player::getDoubleDamage() {
 	return isDamageDoubled;
+}
+
+int Player::getHP() {
+	return this->hp;
 }
