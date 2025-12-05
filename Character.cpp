@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <iostream>
+#include <cstring>
 
 Character::Character() {
     std::strcpy(this->name, "");
