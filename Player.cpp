@@ -41,12 +41,12 @@ void Player::chooseCharacter() {
 
 		case 3:
 			character = new YaJu;
-			printf("你選擇了，！\n");
+			printf("你選擇了雅茄，！\n");
 			return;
 
 		case 4:
 			character = new Ming;
-			printf("你選擇了，帥帥小農場的少東！\n");
+			printf("你選擇了阿仁，帥帥小農場的少東！\n");
 			return;
 		case 9:
 			printf("---------  角色資訊  ---------\n");
