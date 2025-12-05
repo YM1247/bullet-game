@@ -73,9 +73,9 @@ void Game::start() {
 }
 
 void Game::initPlayers() {
-    cout << "--- P1 選角 ---" << endl;
+    cout << "--- P1 選角（請輸入角色編號） ---" << endl;
     player1.chooseCharacter();
-    cout << "--- P2 選角 ---" << endl;
+    cout << "--- P2 選角（請輸入角色編號） ---" << endl;
     player2.chooseCharacter();
 }
 
