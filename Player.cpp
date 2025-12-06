@@ -1,6 +1,6 @@
 #include "Player.h"
 #include <cstdio>
-
+#include <stdexcept>
 
 Player::Player() {
 	hp = 10;
@@ -21,44 +21,54 @@ void Player::chooseCharacter() {
 	int index = 0;
 
 	while (true) {
-		printf("按「9」來檢視角色資訊");
-		scanf("%d", &index);
-
-		switch (index) {
-		case 0:
-			character = new Elliot;
-			printf("你選擇了Elliot，又帥又聰明的經濟學家！\n\n");
-			return;
-
-		case 1:
-			character = new BigJay;
-			printf("你選擇了大傑，！\n\n");
-			return;
-
-		case 2:
-			character = new OldJuang;
-			printf("你選擇了老莊，騎腳踏車去北海道的勇者！\n\n");
-			return;
-
-		case 3:
-			character = new YaJu;
-			printf("你選擇了雅茄，！\n\n");
-			return;
-
-		case 4:
-			character = new Ming;
-			printf("你選擇了阿仁，帥帥小農場的少東！\n\n");
-			return;
-		case 9:
-			printf("---------  角色資訊  ---------\n");
-			printf("0: Elliot，又帥又聰明的經濟學家，知道目前子彈是實？是虛？\n");
-			printf("1: 大傑，迷幻點心之王，迫使吃下點心的對手將槍指向自己\n");
-			printf("2: 老莊，騎腳踏車去北海道的勇者，躲避對手技能\n");
-			printf("3: 雅茄，乒乓球女王，特化子彈讓對方造成雙倍傷害\n");
-			printf("4: 阿仁，帥帥小農場的少東，能喝自家產新鮮牛奶補血\n");
-			printf("-----------------------------\n");
-		default:
-			printf("請輸入正確的角色編號\n");
+		try {
+			printf("按「9」來檢視角色資訊");
+			if (scanf("%d", &index) != 1) {
+				throw logic_error("輸入格式錯誤\n");
+			}
+			if (index < 0 || (index > 4 && index != 9)) {
+				throw logic_error("操作失敗：請輸入正確數字\n");
+			}
+	
+			switch (index) {
+			case 0:
+				character = new Elliot;
+				printf("你選擇了Elliot，又帥又聰明的經濟學家！\n\n");
+				return;
+	
+			case 1:
+				character = new BigJay;
+				printf("你選擇了大傑，！\n\n");
+				return;
+	
+			case 2:
+				character = new OldJuang;
+				printf("你選擇了老莊，騎腳踏車去北海道的勇者！\n\n");
+				return;
+	
+			case 3:
+				character = new YaJu;
+				printf("你選擇了雅茄，！\n\n");
+				return;
+	
+			case 4:
+				character = new Ming;
+				printf("你選擇了阿仁，帥帥小農場的少東！\n\n");
+				return;
+			case 9:
+				printf("---------  角色資訊  ---------\n");
+				printf("0: Elliot，又帥又聰明的經濟學家，知道目前子彈是實？是虛？\n");
+				printf("1: 大傑，迷幻點心之王，迫使吃下點心的對手將槍指向自己\n");
+				printf("2: 老莊，騎腳踏車去北海道的勇者，躲避對手技能\n");
+				printf("3: 雅茄，乒乓球女王，特化子彈讓對方造成雙倍傷害\n");
+				printf("4: 阿仁，帥帥小農場的少東，能喝自家產新鮮牛奶補血\n");
+				printf("-----------------------------\n");
+			default:
+				printf("請輸入正確的角色編號\n");
+			}
+		}
+		catch (const logic_error& e) {
+            printf("%s", e.what());
 		}
 	}
 }
@@ -71,16 +81,23 @@ char Player::chooseDirection() {
 	}
 
 	while (true) {
-		scanf(" %c", &direction);
-
-		if (direction == 'A' || direction == 'a')
-			return 'L';
-
-		else if (direction == 'D' || direction == 'd')
-			return 'R';
-
-		else
-			printf("請輸入正確方向\n");
+		try {
+			scanf(" %c", &direction);
+			if(direction != 'A' && direction != 'D' && direction != 'a' && direction != 'd')
+				throw logic_error("操作失敗：請輸入正確字母\n");
+	
+			if (direction == 'A' || direction == 'a')
+				return 'L';
+	
+			else if (direction == 'D' || direction == 'd')
+				return 'R';
+	
+			else
+				printf("請輸入正確方向\n");
+		}
+		catch (const logic_error& e) {
+			printf("%s", e.what());
+		}
 	}
 }
 
