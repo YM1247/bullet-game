@@ -24,9 +24,12 @@ void Player::chooseCharacter() {
 	while (true) {
 		try {
 			printf("按「9」來檢視角色資訊");
-			if (scanf("%d", &index) != 1) {
-				throw logic_error("輸入格式錯誤\n");
-			}
+            if (scanf("%d", &index) != 1) {
+                int ch;
+                while ((ch = getchar()) != '\n' && ch != EOF) {   // 清掉我們不接受的輸入，如字母
+                }
+                throw logic_error("輸入格式錯誤：請輸入 0–4 或 9\n");
+            }
 			if (index < 0 || (index > 4 && index != 9)) {
 				throw logic_error("操作失敗：請輸入正確數字\n");
 			}
@@ -83,10 +86,19 @@ char Player::chooseDirection() {
 
 	while (true) {
 		try {
-			scanf(" %c", &direction);
-			if(direction != 'A' && direction != 'D' && direction != 'a' && direction != 'd')
-				throw logic_error("操作失敗：請輸入正確字母\n");
-	
+			if (scanf(" %c", &direction) != 1) {
+				int ch;
+				while ((ch = getchar()) != '\n' && ch != EOF) {}  // 清掉後面字母
+				throw logic_error("輸入格式錯誤\n");
+			}
+			int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF) {}  // 清掉後面字母
+
+            if (direction != 'A' && direction != 'a' &&
+                direction != 'D' && direction != 'd') {
+                throw logic_error("操作失敗：請輸入 A/D 或 a/d\n");
+            }
+
 			if (direction == 'A' || direction == 'a')
 				return 'L';
 	
