@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <cstdio>
 #include <stdexcept>
+using namespace std;
 
 Player::Player() {
 	hp = 10;
