@@ -31,6 +31,9 @@ void Player::chooseCharacter() {
                 }
                 throw logic_error("輸入格式錯誤：請輸入 0–4 或 9\n");
             }
+			int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF) {}  // 清掉後面數字
+			
 			if (index < 0 || (index > 4 && index != 9)) {
 				throw logic_error("操作失敗：請輸入正確數字\n");
 			}
