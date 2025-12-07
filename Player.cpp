@@ -190,14 +190,7 @@ bool Player::getDoubleDamage() {
 int Player::getHP() {
 	return this->hp;
 }
-<<<<<<< HEAD
 
-int Player::getSkill() {
-	return this->skillPoint;
-}
+int Player::getSkill() {return skillPoint;}
 
-int Player::getSkillLim() {
-	return this->character->skillLimit;
-}
-=======
->>>>>>> refs/remotes/origin/main
+int Player::getSkillLim() {return character->skillLimit;}
