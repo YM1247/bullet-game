@@ -13,7 +13,7 @@ Character::Character() {
 Elliot::Elliot() : Character() {
 	ID = 0;
 	skillLimit = 2;
-	name = "Elliot";
+	name = "Elliot，又帥又聰明的經濟學家";
 }
 
 void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -31,7 +31,7 @@ void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 BigJay::BigJay() : Character() {
     ID = 1;
 	skillLimit = 2;
-	name = "大傑";
+	name = "大傑，大名鼎鼎的最佳化魔導士";
 }
 
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -44,7 +44,7 @@ void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 OldJuang::OldJuang() : Character() {
     ID = 2;
 	skillLimit = 3;
-	name = "老莊";
+	name = "老莊，公館幫的創立元老";
 }
 
 void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -58,7 +58,7 @@ void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 YaJu::YaJu() : Character() {
     ID = 3;
 	skillLimit = 3;
-	name = "雅茄";
+	name = "雅茄，威名遠播的微積分女神";
 }
 
 void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -73,7 +73,7 @@ void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 Ming::Ming() : Character() {
     ID = 4;
 	skillLimit = 3;
-	name = "阿仁";
+	name = "阿仁，帥帥小農場的少東";
 }
 
 void Ming::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
