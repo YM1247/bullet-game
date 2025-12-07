@@ -34,6 +34,7 @@ BigJay::BigJay() : Character() {
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	opponent.setDirectionFixed(true);
 	std::cout << "發動技能【強制最佳化】！" << "\n";
+	std::cout << "強迫對手指向自己！" << "\n";
 }
 // 2 : OldJuang: rides his bike to Hokkaido
 // Skill: Dodges opponent's skill
@@ -46,6 +47,7 @@ void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
 	myself.setCanDodge(true);
 	std::cout << "發動技能【校外教學】！" << "\n";
+	std::cout << "你將帶領學生騎車前進北海道！" << "\n";
 }
 // 3 : YaJu: throws ping-pong balls
 // Skill: Double damage to opponent
@@ -57,7 +59,8 @@ YaJu::YaJu() : Character() {
 void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
 	opponent.doubleDamage(true);
-	std::cout << "發動技能【加分作業】" << "\n";
+	std::cout << "發動技能【積分】" << "\n";
+	std::cout << "將使對手造成雙倍傷害！" << "\n";
 }
 
 // 4 : Ming: owner of handsome handsome little farm
@@ -70,6 +73,6 @@ Ming::Ming() : Character() {
 void Ming::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
 	myself.getExtraBlood();
-	std::cout << "發動技能【】！" << "\n";
+	std::cout << "發動技能【牧場能量補給】！" << "\n";
 	std::cout << "喝下自家產新鮮牛奶，加一滴血！" << "\n";
 }
