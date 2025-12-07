@@ -36,6 +36,7 @@ void Game::start() {
         cout << (current == &player1 ? "Player 1" : "Player 2") << " 的回合\n";
         // 顯示HP
         cout << "HP： " << current->getHP() << " / " << totalHP << "\n";
+        cout << "Skill: " << current->getSkill()  << " / " << current->getSkillLim() << "\n";
         // 4. 技能階段
         current->applySkillTrigger(gun, *opponent);
 

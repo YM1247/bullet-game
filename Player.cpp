@@ -160,3 +160,11 @@ bool Player::getDoubleDamage() {
 int Player::getHP() {
 	return this->hp;
 }
+
+int Player::getSkill() {
+	return this->skillPoint;
+}
+
+int Player::getSkillLim() {
+	return this->character->skillLimit;
+}

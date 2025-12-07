@@ -35,6 +35,8 @@ class Player {
     void doubleDamage(bool status); // for YaJus's skill, set hasExtraShot
     bool getDoubleDamage();
     int getHP();
+    int getSkill();
+    int getSkillLim();
 };
 
 // Character.h Section
@@ -43,7 +45,6 @@ class Character {
 friend class Player;
 
 protected:
-    char name[10];
 	int ID;
 	int skillLimit;
 
