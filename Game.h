@@ -12,6 +12,7 @@ class Game {
     BulletDeck gun;
 
     public:
+    void intro();
     void start();
     void initPlayers();
     void chooseFirst();

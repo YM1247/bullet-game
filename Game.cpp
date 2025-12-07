@@ -11,6 +11,7 @@ static int BLANK_AMMO = 2; // 空彈數
 const int totalHP = 10;
 
 void Game::start() {
+    intro();
     initPlayers();
     chooseFirst();
 
@@ -117,4 +118,15 @@ void Game::endGame() {
     cout << "\n========== GAME OVER ==========" << endl;
     if (player1.isDead()) cout << "Player 2 獲勝！" << endl;
     else cout << "Player 1 獲勝！" << endl;
+}
+
+void Game::intro() {
+    cout << "\n============== 排課輪盤～機率至上主義的決鬥 ==============\n";
+    cout << "公館幫，一個能在台北市任意呼風喚雨的幫派組織，由五位風聲鶴唳、\n";
+    cout << "威名遠望的幹部——「Elliot」、「大傑」、「老莊」、「雅茄」、「阿仁」所領導。\n";
+    cout << "當幹部之間的矛盾無法解決時，他們便會啟動一場古老的儀式「排課輪盤」來裁定勝負。\n";
+    cout << "今天，就是決戰之日。\n";
+    cout << "五大幹部正為了爭取傳說中「黃金課表」而爆發激烈的爭執。\n";
+    cout << "那是份流傳於公館大學，傳說中的夢幻逸品：沒有早八、週休三日，如天堂般的完美課表。\n";
+    cout << "你，身為五大幹部的一員，必須得運用經濟學的知識在這場儀式中存活下來。\n";
 }
