@@ -80,7 +80,7 @@ void Player::chooseCharacter() {
 
 char Player::chooseDirection() {
 	if (isDirectionFixed == true) {
-		printf("你的方向被對方鎖定了！");
+		printf("你的方向被對方鎖定了！\n");
 		isDirectionFixed = false;
 		return 'L';
 	}
@@ -142,7 +142,7 @@ bool Player::applySkillTrigger(BulletDeck &curBullet, Player &opponent) {
 
 		skillPoint -= character->skillLimit; // 扣點數
 
-		printf("發動技能，使用技能點數%d點，目前剩下%d點\n",
+		printf("發動技能，使用技能點數 %d 點，目前剩下 %d 點\n",
 			   character->skillLimit, skillPoint);
 		return true;
 	}
