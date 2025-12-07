@@ -11,7 +11,7 @@ Character::Character() {
 // Skill: Sees the status of the current bullet (real or blank)
 Elliot::Elliot() : Character() {
 	ID = 0;
-	skillLimit = 3;
+	skillLimit = 2;
 }
 
 void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -28,7 +28,7 @@ void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 // Skill: Forces opponent to shoot him/herself
 BigJay::BigJay() : Character() {
     ID = 1;
-	skillLimit = 3;
+	skillLimit = 2;
 }
 
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
