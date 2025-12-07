@@ -14,6 +14,7 @@ class Player {
     bool isDamageDoubled;
     bool canUseSkill;
     bool isDirectionFixed;
+    bool canDodge;
 
     char direction; // L/R
 
@@ -37,6 +38,8 @@ class Player {
     int getHP();
     int getSkill();
     int getSkillLim();
+    bool setCanDodge(bool status);
+    bool shouldDodge();
 };
 
 // Character.h Section

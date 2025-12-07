@@ -60,17 +60,26 @@ void Game::start() {
             }
         } 
         else { // 射對方
-            if (isReal) {
-                cout << "【實彈】命中對手！" << endl;
-                if(opponent->getDoubleDamage()) { // 對方該被雙倍傷害
-                    opponent->takeDamage(2);              
-                    opponent->doubleDamage(false); // 重設狀態
+            if (isReal) { // 實彈
+                if(opponent->shouldDodge()) { // 可躲子彈
+                    opponent->setCanDodge(false);
+                    cout << "對手騎車去北海道，躲過了子彈！" << "\n";
+                    turn.swap();
+
+                } else { // 不可躲子彈
+                    
+                    cout << "【實彈】命中對手！" << endl;
+                    if(opponent->getDoubleDamage()) { // 對方該被雙倍傷害
+                        opponent->takeDamage(2);              
+                        opponent->doubleDamage(false); // 重設狀態
+                    }
+                    else { // 對方該被正常傷害
+                        opponent->takeDamage(1);
+                    } 
+                    turn.swap(); // 擊中換人
                 }
-                else { // 對方該被正常傷害
-                    opponent->takeDamage(1);
-                } 
-                turn.swap(); // 擊中換人
-            } else {
+
+            } else { // 虛彈
                 cout << "【空彈】未命中。" << endl;
                 turn.swap(); // 沒中換人
             }

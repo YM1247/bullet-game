@@ -43,8 +43,8 @@ OldJuang::OldJuang() : Character() {
 
 void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 	// use skill
-	opponent.setSkillInvalid(false);
-	std::cout << "對手技能無效化了！" << "\n";
+	myself.setCanDodge(true);
+	std::cout << "！" << "\n";
 }
 // 3 : YaJu: throws ping-pong balls
 // Skill: Double damage to opponent

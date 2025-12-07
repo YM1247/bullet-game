@@ -11,6 +11,7 @@ Player::Player() {
 	canUseSkill = true;
 	direction = 'N';
 	isDirectionFixed = false;
+	canDodge = false;
 }
 
 Player::~Player() {
@@ -194,3 +195,9 @@ int Player::getHP() {
 int Player::getSkill() {return skillPoint;}
 
 int Player::getSkillLim() {return character->skillLimit;}
+
+bool Player::setCanDodge(bool status) {
+	this->canDodge = status;
+};
+
+bool Player::shouldDodge() {return canDodge;}
