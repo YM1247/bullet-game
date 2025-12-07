@@ -201,3 +201,5 @@ bool Player::setCanDodge(bool status) {
 };
 
 bool Player::shouldDodge() {return canDodge;}
+
+string Player::getName() {return character->name;}

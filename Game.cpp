@@ -33,7 +33,7 @@ void Game::start() {
         Player* opponent = turn.getOpponentPlayer();
 
         cout << "\n--------------------------------\n";
-        cout << (current == &player1 ? "Player 1" : "Player 2") << " 的回合\n";
+        cout << (current == &player1 ? "Player 1(" : "Player 2(") << current->getName() << " )的回合\n";
         // 顯示HP
         cout << "HP： " << current->getHP() << " / " << totalHP << "\n";
         cout << "Skill: " << current->getSkill()  << " / " << current->getSkillLim() << "\n";

@@ -1,10 +1,11 @@
 #include "Player.h"
 #include <iostream>
-#include <cstring>
+#include <string>
 
 Character::Character() {
 	this->ID = -1;
 	this->skillLimit = -1;
+	this->name = "";
 }
 
 // 0 : Elliot: the smart & handsome economist
@@ -12,6 +13,7 @@ Character::Character() {
 Elliot::Elliot() : Character() {
 	ID = 0;
 	skillLimit = 2;
+	name = "Elliot";
 }
 
 void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -29,6 +31,7 @@ void Elliot::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 BigJay::BigJay() : Character() {
     ID = 1;
 	skillLimit = 2;
+	name = "大傑";
 }
 
 void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -41,6 +44,7 @@ void BigJay::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 OldJuang::OldJuang() : Character() {
     ID = 2;
 	skillLimit = 3;
+	name = "老莊";
 }
 
 void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -54,6 +58,7 @@ void OldJuang::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 YaJu::YaJu() : Character() {
     ID = 3;
 	skillLimit = 3;
+	name = "雅茄";
 }
 
 void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
@@ -68,6 +73,7 @@ void YaJu::useSkill(BulletDeck gun, Player &myself, Player &opponent) {
 Ming::Ming() : Character() {
     ID = 4;
 	skillLimit = 3;
+	name = "阿仁";
 }
 
 void Ming::useSkill(BulletDeck gun, Player &myself, Player &opponent) {

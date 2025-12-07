@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "BulletDeck.h"
+#include <string>
 
 class Character;
 
@@ -40,6 +41,7 @@ class Player {
     int getSkillLim();
     bool setCanDodge(bool status);
     bool shouldDodge();
+    string getName();
 };
 
 // Character.h Section
@@ -50,6 +52,7 @@ friend class Player;
 protected:
 	int ID;
 	int skillLimit;
+    string name;
 
 public:
 	Character();
