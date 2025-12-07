@@ -41,7 +41,7 @@ class Player {
     int getSkillLim();
     bool setCanDodge(bool status);
     bool shouldDodge();
-    string getName();
+    std::string getName();
 };
 
 // Character.h Section
@@ -52,7 +52,7 @@ friend class Player;
 protected:
 	int ID;
 	int skillLimit;
-    string name;
+    std::string name;
 
 public:
 	Character();
