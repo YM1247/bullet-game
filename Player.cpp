@@ -24,7 +24,7 @@ void Player::chooseCharacter() {
 
 	while (true) {
 		try {
-			printf("按「9」來檢視角色資訊");
+			printf("（按「9」來檢視角色資訊）");
             if (scanf("%d", &index) != 1) {
                 int ch;
                 while ((ch = getchar()) != '\n' && ch != EOF) {   // 清掉我們不接受的輸入，如字母
@@ -43,17 +43,17 @@ void Player::chooseCharacter() {
 	
 			case 1:
 				character = new BigJay;
-				printf("你選擇了大傑，！\n\n");
+				printf("你選擇了大傑，大名鼎鼎的最佳化魔導士！\n\n");
 				return;
 	
 			case 2:
 				character = new OldJuang;
-				printf("你選擇了老莊，騎腳踏車去北海道的勇者！\n\n");
+				printf("你選擇了老莊，騎腳踏車去北海道的元老！\n\n");
 				return;
 	
 			case 3:
 				character = new YaJu;
-				printf("你選擇了雅茄，！\n\n");
+				printf("你選擇了雅茄，威名遠播的微積分女神！\n\n");
 				return;
 	
 			case 4:
@@ -63,10 +63,10 @@ void Player::chooseCharacter() {
 			case 9:
 				printf("---------  角色資訊  ---------\n");
 				printf("0: Elliot，又帥又聰明的經濟學家，知道目前子彈是實？是虛？\n");
-				printf("1: 大傑，迷幻點心之王，迫使吃下點心的對手將槍指向自己\n");
-				printf("2: 老莊，騎腳踏車去北海道的勇者，躲避對手技能\n");
-				printf("3: 雅茄，乒乓球女王，特化子彈讓對方造成雙倍傷害\n");
-				printf("4: 阿仁，帥帥小農場的少東，能喝自家產新鮮牛奶補血\n");
+				printf("1: 大傑，大名鼎鼎的最佳化魔導士，強制對手將槍指向自己\n");
+				printf("2: 老莊，騎腳踏車去北海道的元老，躲避實彈攻擊\n");
+				printf("3: 雅茄，威名遠播的微積分女神，讓對方造成雙倍傷害\n");
+				printf("4: 阿仁，帥帥小農場的少東，最愛喝自家產新鮮牛奶補血\n");
 				printf("-----------------------------\n");
 			default:
 				printf("請輸入正確的角色編號\n");
@@ -80,7 +80,7 @@ void Player::chooseCharacter() {
 
 char Player::chooseDirection() {
 	if (isDirectionFixed == true) {
-		printf("你的方向被對方鎖定了");
+		printf("你的方向被對方鎖定了！");
 		isDirectionFixed = false;
 		return 'L';
 	}
